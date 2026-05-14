@@ -1,0 +1,258 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* Google Fonts imports are handled in the layout head */
+
+@theme {
+    /* Font families */
+    --font-display: 'Anton', Impact, Helvetica, sans-serif;
+    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'Space Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+    /* Color tokens registered for Tailwind utility generation */
+    --color-canvas: initial;
+    --color-surface: initial;
+    --color-mint: initial;
+    --color-ultraviolet: initial;
+    --color-white: initial;
+    --color-gray: initial;
+    --color-muted: initial;
+    --color-frame: initial;
+    --color-link-hover: initial;
+    --color-black: initial;
+}
+
+@layer base {
+    /* Light mode (default when no .dark class) */
+    :root {
+        --color-canvas: #FFFFFF;
+        --color-surface: #F5F5F5;
+        --color-mint: #00B894;
+        --color-ultraviolet: #5200FF;
+        --color-white: #131313;
+        --color-gray: #6B6B6B;
+        --color-muted: #333333;
+        --color-frame: #E0E0E0;
+        --color-link-hover: #2D4EA3;
+        --color-black: #000000;
+    }
+
+    /* Dark mode (activated by .dark class on html) */
+    :root.dark {
+        --color-canvas: #131313;
+        --color-surface: #2D2D2D;
+        --color-mint: #3CFFD0;
+        --color-ultraviolet: #5200FF;
+        --color-white: #FFFFFF;
+        --color-gray: #949494;
+        --color-muted: #E9E9E9;
+        --color-frame: #313131;
+        --color-link-hover: #3860BE;
+        --color-black: #000000;
+    }
+
+    /* Theme transition (added temporarily during toggle for smooth switching) */
+    html.theme-transition,
+    html.theme-transition *,
+    html.theme-transition *::before,
+    html.theme-transition *::after {
+        transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease !important;
+    }
+
+    html {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        background-color: var(--color-canvas);
+        color: var(--color-white);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Desktop container padding */
+    @media (min-width: 1024px) {
+        .container-main {
+            padding-left: 48px;
+            padding-right: 48px;
+        }
+    }
+
+    /* Links base transition */
+    a {
+        transition: color 150ms ease;
+    }
+
+    a:hover {
+        color: var(--color-link-hover);
+    }
+
+    /* Selection color */
+    ::selection {
+        background-color: var(--color-mint);
+        color: var(--color-black);
+    }
+}
+
+/* Container utility */
+@utility container-main {
+    width: 100%;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* Mono Label utility */
+@utility mono-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Display font utility */
+@utility font-display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    line-height: 0.95;
+}
+
+/* Pill card radius */
+@utility pill-card {
+    border-radius: 20px;
+}
+
+/* Feature card radius */
+@utility pill-feature {
+    border-radius: 24px;
+}
+
+/* CTA pill radius */
+@utility pill-cta {
+    border-radius: 40px;
+}
+
+/* Hairline border */
+@utility hairline {
+    border: 1px solid var(--color-frame);
+}
+
+/* Hairline mint */
+@utility hairline-mint {
+    border: 1px solid var(--color-mint);
+}
+
+/* Primary button style */
+@utility btn-primary {
+    background-color: var(--color-mint);
+    color: var(--color-black);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    border-radius: 24px;
+    padding: 10px 24px;
+    transition: background-color 180ms ease, box-shadow 180ms ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Secondary button style */
+@utility btn-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-muted);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 24px;
+    padding: 10px 24px;
+    transition: background-color 180ms ease, box-shadow 180ms ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Navbar shadow — visible in light mode only */
+@utility navbar-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+:root.dark .navbar-shadow {
+    box-shadow: none;
+}
+
+/* Tertiary / outlined button */
+@utility btn-outlined {
+    background-color: transparent;
+    color: var(--color-mint);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    border: 1px solid var(--color-mint);
+    border-radius: 40px;
+    padding: 10px 24px;
+    transition: background-color 150ms ease, color 150ms ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* ===== ANIMATIONS ===== */
+
+/* Fade in up — staggered entrance */
+@utility animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating animation */
+@utility animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Marquee scrolling */
+@utility animate-marquee {
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Scroll-triggered animation (JS adds .visible) */
+@utility animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Override must be outside @layer to beat utility specificity */
+.animate-on-scroll.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
