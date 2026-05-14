@@ -4,18 +4,26 @@ Personal portfolio website built with Laravel 12 for the Pemrograman Web Lanjut 
 
 ## Preview
 
-### Dark Mode
-![Home - Dark Mode](screenshots/home-dark.png)
-
-### Light Mode
-![Home - Light Mode](screenshots/home-light.png)
-
-### Pages
-| Page | Screenshot |
-|------|-----------|
-| About | ![About](screenshots/about.png) |
-| Projects | ![Projects](screenshots/projects.png) |
-| Certificates | ![Certificates](screenshots/certificates.png) |
+<details>
+<summary>Home Dark Mode</summary>
+<img src="screenshots/home-dark.png"/>
+</details>
+<details>
+<summary>Home Light Mode</summary>
+<img src="screenshots/home-light.png"/>
+</details>
+<details>
+<summary>About</summary>
+<img src="screenshots/about.png"/>
+</details>
+<details>
+<summary>Project</summary>
+<img src="screenshots/projects.png"/>
+</details>
+<details>
+<summary>Certifiates</summary>
+<img src="screenshots/certificates.png"/>
+</details>
 
 ## Features
 
