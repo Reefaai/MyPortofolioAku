@@ -1,59 +1,133 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Portfolio Website — Ahmad Rifa'i
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Personal portfolio website built with Laravel 12 for the Pemrograman Web Lanjut (PWL) course. Features a dark editorial design system inspired by The Verge, with dark/light mode toggle, scroll animations, and responsive layout.
 
-## About Laravel
+## Preview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Dark Mode | Light Mode |
+|-----------|------------|
+| Canvas Black (#131313) with acid-mint accents | Clean white with muted green accents |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **4 Pages** — Home, About, Projects, Certificates
+- **Dark/Light Mode** — Toggle with localStorage persistence and system preference detection
+- **The Verge-Inspired Design** — Pill-shaped cards, mono-uppercase labels, hairline borders, color-block tiles
+- **Scroll Animations** — Fade-in-up entrance, floating profile photo, tech marquee, hover interactions
+- **Responsive** — Mobile-first with hamburger nav, adapts from 320px to 1300px+
+- **GitHub Actions CI** — Automated PHPUnit tests on push to main
+- **Accessibility** — Semantic HTML, proper heading hierarchy, alt text, ARIA labels
 
-## Learning Laravel
+## Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+| Layer | Technology |
+|-------|-----------|
+| Backend | Laravel 12 (PHP 8.2+) |
+| Frontend | Blade Templates, Tailwind CSS 4 |
+| Build | Vite 7 |
+| Fonts | Anton, Space Grotesk, Space Mono (Google Fonts) |
+| Database | SQLite |
+| CI/CD | GitHub Actions |
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Getting Started
 
-## Laravel Sponsors
+### Prerequisites
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- PHP 8.2+
+- Composer
+- Node.js 18+
+- npm
 
-### Premium Partners
+### Installation
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+# Clone the repository
+git clone https://github.com/Reefaai/MyPortofolioAku.git
+cd MyPortofolioAku
 
-## Contributing
+# Install PHP dependencies
+composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Install Node dependencies
+npm install
 
-## Code of Conduct
+# Environment setup
+cp .env.example .env
+php artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Create SQLite database
+touch database/database.sqlite
+php artisan migrate
 
-## Security Vulnerabilities
+# Build frontend assets
+npm run build
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Start development server
+php artisan serve
+```
+
+Visit `http://localhost:8000` in your browser.
+
+### Development
+
+```bash
+# Run Vite dev server (hot reload)
+npm run dev
+
+# Run tests
+php artisan test
+
+# Build for production
+npm run build
+```
+
+## Project Structure
+
+```
+├── app/
+│   ├── Http/Controllers/     # PortfolioController
+│   └── Models/               # Contact model
+├── config/
+│   └── portfolio.php         # Portfolio data (projects, certificates, skills)
+├── resources/
+│   ├── css/app.css           # Tailwind + design system tokens
+│   ├── js/
+│   │   ├── app.js            # Theme toggle, hamburger menu, scroll observer
+│   │   └── theme-manager.js  # Dark/light mode logic
+│   └── views/
+│       ├── layouts/app.blade.php
+│       ├── components/       # Navbar, Footer
+│       └── pages/            # Home, About, Projects, Certificates
+├── public/images/            # Profile photo, certificate images
+├── tests/Feature/            # PHPUnit feature + property tests
+└── .github/workflows/ci.yml  # GitHub Actions CI pipeline
+```
+
+## Customization
+
+All portfolio content is configured in `config/portfolio.php`:
+
+- **Owner info** — name, email, tagline, bio, photo, skills, education, social links
+- **Projects** — title, description, technologies, repository URL
+- **Certificates** — name, issuer, year, verification URL, image
+
+## Design System
+
+The visual design follows a custom system documented in `DESIGN.md`, inspired by The Verge's 2024 redesign:
+
+- **Colors** — Canvas Black, Jelly Mint, Ultraviolet, Surface Slate
+- **Typography** — Anton (display), Space Grotesk (body), Space Mono (labels)
+- **Components** — Pill cards (20-40px radius), hairline borders, color-block tiles
+- **Depth** — No box-shadows; elevation via 1px borders and saturated color fills
+- **Motion** — Fade-in-up entrances, floating photo, marquee, hover scale/glow
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+**Ahmad Rifa'i**
+- GitHub: [@Reefaai](https://github.com/Reefaai)
+- Instagram: [@ahmd.reefai](https://www.instagram.com/ahmd.reefai)
+- Facebook: [Ahmd.Reefai](https://www.facebook.com/Ahmd.Reefai)
