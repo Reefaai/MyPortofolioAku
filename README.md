@@ -4,9 +4,18 @@ Personal portfolio website built with Laravel 12 for the Pemrograman Web Lanjut 
 
 ## Preview
 
-| Dark Mode | Light Mode |
-|-----------|------------|
-| Canvas Black (#131313) with acid-mint accents | Clean white with muted green accents |
+### Dark Mode
+![Home - Dark Mode](screenshots/home-dark.png)
+
+### Light Mode
+![Home - Light Mode](screenshots/home-light.png)
+
+### Pages
+| Page | Screenshot |
+|------|-----------|
+| About | ![About](screenshots/about.png) |
+| Projects | ![Projects](screenshots/projects.png) |
+| Certificates | ![Certificates](screenshots/certificates.png) |
 
 ## Features
 
@@ -128,6 +137,3 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 ## Author
 
 **Ahmad Rifa'i**
-- GitHub: [@Reefaai](https://github.com/Reefaai)
-- Instagram: [@ahmd.reefai](https://www.instagram.com/ahmd.reefai)
-- Facebook: [Ahmd.Reefai](https://www.facebook.com/Ahmd.Reefai)
