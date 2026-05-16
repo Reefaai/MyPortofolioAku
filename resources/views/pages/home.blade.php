@@ -4,7 +4,7 @@
 
 @section('content')
 {{-- Hero Section with staggered entrance animations --}}
-<section class="container-main py-16 md:py-24 lg:py-32 overflow-hidden">
+<section class="container-main py-16 md:py-24 lg:py-32">
     <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
         {{-- Text Content --}}
         <div class="flex-1 text-center lg:text-left">
